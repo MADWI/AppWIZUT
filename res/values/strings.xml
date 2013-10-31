@@ -2,15 +2,13 @@
 <resources>
 
     <string name="app_name">Aplikacja WI ZUT</string>
-    <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string-array name="menu_items">
-        <item >Grupa / tydzień</item>
-        <item >Aktualności</item>
-        <item >Ogłoszenia</item>
-        <item >Zmiany w planie</item>
-        <item >Ustawienia</item>
-    </string-array>
+    <string name="drawer_open_title">Wybierz z listy</string>
+    <string name="group">Grupa / tydzień</string>
+    <string name="news">Aktualności</string>
+    <string name="announcements">Ogłoszenia</string>
+    <string name="changes">Zmiany w planie</string>
+    <string name="settings">Ustawienia</string>
     <string name="drawer_open">MAD ZUT</string>
     <string name="drawer_close">MAD ZUT</string>
 
