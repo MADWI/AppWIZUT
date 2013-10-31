@@ -1,8 +1,9 @@
 package pl.edu.zut.mad.appwizut;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class MenuFragment extends Fragment {
  
         TextView tv = (TextView) view.findViewById(R.id.tv_content);
         tv.setText(rivers[position]);
-        getActivity().getActionBar().setTitle(rivers[position]);
+        ((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(rivers[position]);
  
         return view;
     }
