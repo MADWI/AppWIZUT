@@ -11,5 +11,8 @@
     <string name="settings">Ustawienia</string>
     <string name="drawer_open">MAD ZUT</string>
     <string name="drawer_close">MAD ZUT</string>
+    
+    <string name="dataCollection">Pobieranie danych</string>
+    <string name="loadPlanChanges">Ładowanie zmian w planie &#8230;</string>
 
 </resources>

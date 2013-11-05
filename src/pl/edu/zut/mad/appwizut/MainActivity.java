@@ -1,5 +1,6 @@
 package pl.edu.zut.mad.appwizut;
 
+import pl.edu.zut.mad.appwizut.models.fragments.UpdateAndSetNews;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -33,7 +34,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	 */
 	private static final DrawerMenuItem[] DRAWER_ITEMS = new DrawerMenuItem[] {
 			new DrawerMenuItemFragment(R.string.group, SampleFragment.class, SampleFragment.getArgumentsForMessage("group/week")),
-			new DrawerMenuItemFragment(R.string.news, SampleFragment.class, SampleFragment.getArgumentsForMessage("news")),
+			new DrawerMenuItemFragment(R.string.news, UpdateAndSetNews.class),
 			new DrawerMenuItemFragment(R.string.announcements, SampleFragment.class, SampleFragment.getArgumentsForMessage("announcements")),
 			new DrawerMenuItemFragment(R.string.changes, SampleFragment.class, SampleFragment.getArgumentsForMessage("changes")),
 			new DrawerMenuItemFragment(R.string.group, SampleFragment.class, SampleFragment.getArgumentsForMessage("group")),
