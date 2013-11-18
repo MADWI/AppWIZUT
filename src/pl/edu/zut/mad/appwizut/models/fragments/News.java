@@ -6,7 +6,6 @@ public class News extends UpdateAndSetNews {
 
 	public News() {
 		super();
-		super.setHttpLink(HTTPLinks.AKTUALNOSCI);
-		super.startConnect();
+		super.startConnect(HTTPLinks.AKTUALNOSCI);
 	}
 }
