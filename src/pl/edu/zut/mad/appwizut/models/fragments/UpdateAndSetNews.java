@@ -50,9 +50,8 @@ public class UpdateAndSetNews extends Fragment {
 
 	/** Obiekt ListView */
 	private ListView articles;
-
+	
 	public UpdateAndSetNews() {
-		pars = new GetChanges(HTTPLinks.AKTUALNOSCI);
 		news = new ArrayList<MessagePlanChanges>();
 	}
 
@@ -71,6 +70,14 @@ public class UpdateAndSetNews extends Fragment {
 			new AsyncTaskGetPlanChanges().execute();
 
 		return rootView;
+	}
+	
+	public void startConnect(String http) {
+		try {
+			pars = new GetChanges(http);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/** Metoda odswiezajaca ListView ze zmianami w planie */
@@ -139,7 +146,7 @@ public class UpdateAndSetNews extends Fragment {
 		});
 
 		if (news.size() == 0) {
-			Toast.makeText(getActivity(), "Brak wiadomoœci", Toast.LENGTH_LONG)
+			Toast.makeText(getActivity(), "Brak wiadomoï¿½ci", Toast.LENGTH_LONG)
 					.show();
 		}
 	}
