@@ -6,7 +6,6 @@ public class Advertisements extends UpdateAndSetNews {
 
 	public Advertisements() {
 		super();
-		super.setHttpLink(HTTPLinks.OGLOSZENIA);
-		super.startConnect();
+		super.startConnect(HTTPLinks.OGLOSZENIA);
 	}
 }
