@@ -6,7 +6,6 @@ public class ChangesInThePlan extends UpdateAndSetNews{
 
 	public ChangesInThePlan() {
 		super();
-		super.setHttpLink(HTTPLinks.ZMIANY_W_PLANIE);
-		super.startConnect();
+		super.startConnect(HTTPLinks.ZMIANY_W_PLANIE);
 	}
 }
