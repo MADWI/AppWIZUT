@@ -1,5 +1,11 @@
 package pl.edu.zut.mad.appwizut;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.roomorama.caldroid.CaldroidFragment;
+import com.roomorama.caldroid.CaldroidListener;
+
 import pl.edu.zut.mad.appwizut.models.fragments.UpdateAndSetNews;
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,6 +58,10 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
+	private CaldroidFragment dialogCaldroidFragment;
+	private CaldroidFragment caldroidFragment;
+	private SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+	private Bundle state;
 
 	/**
 	 * Open app settings
@@ -74,6 +84,9 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		} else {
 			mCurrentlySelectedFragmentIndex = savedInstanceState.getInt(STATE_CURRENTLY_SELECTED_FRAGMENT_INDEX);
 		}
+		
+		caldroidFragment = new CaldroidFragment();
+		state = savedInstanceState;
 
 		// Prepare drawer
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -148,9 +161,15 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-		if (item.getItemId() == R.id.action_settings) {
-			openSettings();
-		}
+        switch(item.getItemId())
+        {
+        case R.id.action_settings:
+        	openSettings();
+        	break;
+        case R.id.action_calendar:
+        	showCalendar();
+        	break;
+        }
         return super.onOptionsItemSelected(item);
     }
  
@@ -179,7 +198,68 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    
+	private void showCalendar() {
+		// Setup caldroid to use as dialog
+		dialogCaldroidFragment = new CaldroidFragment();
+		dialogCaldroidFragment.setCaldroidListener(listener);
 
+		// If activity is recovered from rotation
+		final String dialogTag = "CALDROID_DIALOG_FRAGMENT";
+		if (state != null) {
+			dialogCaldroidFragment.restoreDialogStatesFromKey(
+					getSupportFragmentManager(), state,
+					"DIALOG_CALDROID_SAVED_STATE", dialogTag);
+			Bundle args = dialogCaldroidFragment.getArguments();
+			if (args == null) {
+				args = new Bundle();
+				dialogCaldroidFragment.setArguments(args);
+			}
+			args.putString(CaldroidFragment.DIALOG_TITLE, "Select a date");
+		} else {
+			// Setup arguments
+			Bundle bundle = new Bundle();
+			// Setup dialogTitle
+			bundle.putString(CaldroidFragment.DIALOG_TITLE, "Select a date");
+			dialogCaldroidFragment.setArguments(bundle);
+		}
+
+		dialogCaldroidFragment.show(getSupportFragmentManager(), dialogTag);
+	}
+
+	// Setup listener
+	private CaldroidListener listener = new CaldroidListener() {
+
+		@Override
+		public void onSelectDate(Date date, View view) {
+			Toast.makeText(getApplicationContext(), formatter.format(date),
+					Toast.LENGTH_SHORT).show();
+
+		}
+
+		@Override
+		public void onChangeMonth(int month, int year) {
+			String text = "month: " + month + " year: " + year;
+			Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
+					.show();
+		}
+
+		@Override
+		public void onLongClickDate(Date date, View view) {
+			Toast.makeText(getApplicationContext(),
+					"Long click " + formatter.format(date), Toast.LENGTH_SHORT)
+					.show();
+		}
+
+		@Override
+		public void onCaldroidViewCreated() {
+			if (caldroidFragment.getLeftArrowButton() != null) {
+				Toast.makeText(getApplicationContext(),
+						"Caldroid view is created", Toast.LENGTH_SHORT).show();
+			}
+		}
+
+	};
 
 
 	/**

@@ -7,4 +7,12 @@
         app:showAsAction="ifRoom"
         android:title="@string/settings"/>
     
+    <item
+        android:id="@+id/action_calendar"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_calendar_icon"
+        android:title="@string/calendar"/>
+    
 </menu>

@@ -3,8 +3,10 @@ package pl.edu.zut.mad.appwizut.connection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 
 import org.apache.http.HttpEntity;
@@ -134,27 +136,53 @@ public class HttpConnect {
 	return true;
     }
 
-    /**
-     * Metoda sprawdzajaca polaczenie z Internetem
-     * 
-     * @param ctx
-     *            kontekst aplikacji
-     * 
-     * @return true jezeli stwierdzono polaczenie
-     */
-    public static boolean isOnline(Context ctx) {
-	Log.i(TAG, "isOnline...");
+	/**
+	 * Metoda sprawdzajaca polaczenie z Internetem
+	 * 
+	 * @param ctx
+	 *            kontekst aplikacji
+	 * 
+	 * @return true jezeli stwierdzono polaczenie
+	 */
+	public static boolean isOnline(Context ctx) {
+		Log.i(TAG, "isOnline...");
 
-	ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-	NetworkInfo ni = cm.getActiveNetworkInfo();
-	if (ni != null && ni.isAvailable() && ni.isConnected()) {
-	    return true;
-	} else {
-	    /*Toast.makeText(ctx, ctx.getString(R.string.no_Internet),
-		    Toast.LENGTH_SHORT).show();*/
-		Toast.makeText(ctx, "Brak po³¹czenia z internetem!",
-			    Toast.LENGTH_SHORT).show();
-	    return false;
+		ConnectivityManager cm = (ConnectivityManager) ctx
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo ni = cm.getActiveNetworkInfo();
+		if (ni != null && ni.isAvailable() && ni.isConnected()) {
+			return hasActiveInternetConnection(ctx);
+		} else {
+			/*
+			 * Toast.makeText(ctx, ctx.getString(R.string.no_Internet),
+			 * Toast.LENGTH_SHORT).show();
+			 */
+			Toast.makeText(ctx, "Brak po³¹czenia z internetem!",
+					Toast.LENGTH_SHORT).show();
+			return false;
+		}
 	}
-    }
+
+	/**
+	 * Metoda sprawdza, czy mo¿na po³aczyc siê z wybran¹ stron¹ (lepsze
+	 * przetestowanie po³¹czenia internetowego)
+	 * 
+	 * @param context
+	 *            kontekst aplikacji
+	 * @return true jeœli po³¹czono (kod 200), lub false w przeciwnym wypadku)
+	 */
+	private static boolean hasActiveInternetConnection(Context context) {
+		try {
+			HttpURLConnection urlc = (HttpURLConnection) (new URL(
+					"http://www.google.com").openConnection());
+			urlc.setRequestProperty("User-Agent", "Test");
+			urlc.setRequestProperty("Connection", "close");
+			urlc.setConnectTimeout(500);
+			urlc.connect();
+			return (urlc.getResponseCode() == 200);
+		} catch (IOException e) {
+			Log.e(TAG, "Error checking internet connection", e);
+			return false;
+		}
+	}
 }
