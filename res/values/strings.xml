@@ -16,4 +16,30 @@
     <string name="dataCollection">Pobieranie danych</string>
     <string name="loadPlanChanges">Ładowanie zmian w planie &#8230;</string>
 
+
+
+    <string name="authors_list">...todo</string>
+
+
+    <string name="remove_plans_message">Czy na pewno chcesz usunąć wszystkie plany z dysku?</string>
+    <string name="remove_plan_alert_dialog">Usuń plan</string>
+    <string name="remove_plan_message">Czy na pewno chcesz usunąć plan z dysku?</string>
+    <string name="menu_info_title">Informacje</string>
+    <string name="about_title">O nas</string>
+    <string name="logo_description">logo</string>
+    <string name="authors">Mobile Applications Developers</string>
+    <string name="ok_title">OK</string>
+    <string name="website">www.mad.zut.edu.pl</string>
+    <string name="email">e-mail: mad@zut.edu.pl</string>
+    <string name="remove_all_plans">Usuń wszystkie</string>
+
+    <string name="remove_plans_alert_dialog">Usuń plany</string>
+
+    <string name="downloading_in_progress">Trwa pobieranie planów</string>
+    <string name="no_connection_and_local_data">Brak połączenia z internetem i pobranych planów</string>
+    <string name="group_not_selected">Przed pobraniem planu musisz wybrać grupe</string>
+    <string name="something_went_wrong">Coś poszło nie tak</string>
+    <string name="successfull_collected_plan">Pobrano plan</string>
+    <string name="no_internet_connection">Brak połączenia z internetem</string>
+
 </resources>

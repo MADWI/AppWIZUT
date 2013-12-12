@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- http://code.google.com/p/android/issues/detail?id=4611 #20 komentarz-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:summary="Stopień studiów" android:title="Stopień" >
+        <ListPreference android:defaultValue="" android:key="stopien" android:title="Stopien" android:entries="@array/list_stopien_studiow" android:entryValues="@array/wartosci_list_stopien_studiow"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:summary="Tryb studiów" android:title="Tryb" >
+        <ListPreference android:defaultValue="" android:key="tryb" android:title="Tryb" android:entries="@array/list_rodzaj_studiow" android:entryValues="@array/wartosci_list_rodzaj_studiow"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:summary="Kierunek studiów" android:title="Kierunek" >
+        <ListPreference android:defaultValue="" android:key="kierunek" android:title="Kierunek" android:entries="@array/list_kierunek_studiow" android:entryValues="@array/wartosci_list_kierunek_studiow"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:summary="Rok studiów" android:title="Rok" >
+        <ListPreference android:defaultValue="" android:key="rok" android:title="Rok" android:entries="@array/list_rok_studiow" android:entryValues="@array/wartosci_list_rok_studiow"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:summary="Grupa" android:title="Grupa" >
+        <ListPreference android:key="grupa" android:title="Grupa" android:entries="@array/puste" android:entryValues="@array/puste"/>
+    </PreferenceCategory>
+    <Preference
+        android:key="pobierz"
+        android:title="Pobierz plan" />
+
+</PreferenceScreen>

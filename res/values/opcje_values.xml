@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="stopnieStudiow">
+        <item>Pierwszy</item>
+        <item>Drugi</item>
+    </string-array>
+    <string-array name="stopnieStudiowWartosci">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
+    <string-array name="rokStudiow">
+        <item>Pierwszy</item>
+        <item>Drugi</item>
+        <item>Trzeci</item>
+        <item>Czwarty</item>
+    </string-array>
+    <string-array name="rokStudiowWartosci">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="typStudiow">
+        <item>Stacjonarne</item>
+        <item>Niestacjonarne</item>
+    </string-array>
+    <string-array name="typStudiowWartosci">
+        <item>Stacjonarne</item>
+        <item>Niestacjonarne</item>
+    </string-array>
+
+    <string-array name="kierunekStudiow">
+        <item>Informatyka</item>
+        <item>Zarządzanie i inżynieria produkcji</item>
+        <item>Inżynieria cyfryzacji</item>
+    </string-array>
+    <string-array name="kierunekStudiowWartosci">
+        <item>I</item>
+        <item>ZIP</item>
+        <item>IC</item>
+    </string-array>
+
+    <string-array name="puste">
+        <item>test</item>
+    </string-array>
+
+</resources>
+
+

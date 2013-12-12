@@ -3,8 +3,8 @@ package pl.edu.zut.mad.appwizut;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.roomorama.caldroid.CaldroidFragment;
-import com.roomorama.caldroid.CaldroidListener;
+//import com.roomorama.caldroid.CaldroidFragment;
+//import com.roomorama.caldroid.CaldroidListener;
 
 import pl.edu.zut.mad.appwizut.models.fragments.UpdateAndSetNews;
 import android.content.Intent;
@@ -58,8 +58,8 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	private CaldroidFragment dialogCaldroidFragment;
-	private CaldroidFragment caldroidFragment;
+	//private CaldroidFragment dialogCaldroidFragment;
+	//private CaldroidFragment caldroidFragment;
 	private SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
 	private Bundle state;
 
@@ -67,9 +67,9 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	 * Open app settings
 	 */
 	private void openSettings() {
-		// TODO: open app settings
-		Toast.makeText(this, "TODO: open app settings", Toast.LENGTH_LONG).show();
-		startActivity(new Intent("android.settings.SETTINGS"));
+        //przy mergowaniu w tym pliku zmienilem tylko te funkcje, czesc rzeczy została zakomentowana bo nie potrafilem importowac caldroida do projektu
+        Intent oUstawienia=new Intent(MainActivity.this, Ustawienia.class);
+		startActivity(oUstawienia);
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 			mCurrentlySelectedFragmentIndex = savedInstanceState.getInt(STATE_CURRENTLY_SELECTED_FRAGMENT_INDEX);
 		}
 		
-		caldroidFragment = new CaldroidFragment();
+		//caldroidFragment = new CaldroidFragment();
 		state = savedInstanceState;
 
 		// Prepare drawer
@@ -167,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         	openSettings();
         	break;
         case R.id.action_calendar:
-        	showCalendar();
+        	//showCalendar();
         	break;
         }
         return super.onOptionsItemSelected(item);
@@ -198,7 +198,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+    /*
 	private void showCalendar() {
 		// Setup caldroid to use as dialog
 		dialogCaldroidFragment = new CaldroidFragment();
@@ -260,7 +260,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 		}
 
 	};
-
+*/
 
 	/**
 	 * Generic drawer menu item

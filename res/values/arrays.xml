@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_rodzaj_studiow">
+        <item>Stacjonarne</item>
+        <item>Niestacjonarne</item>
+    </string-array>
+    <string-array name="list_kierunek_studiow">
+        <item>Informatyka</item>
+        <item>ZIP</item>
+        <item>Bioinformatyka</item>
+        <item>Inżynieria cyfryzacji</item>
+    </string-array>
+    <string-array name="list_stopien_studiow">
+        <item>I</item>
+        <item>II</item>
+    </string-array>
+    <string-array name="list_rok_studiow">
+        <item>Pierwszy</item>
+        <item>Drugi</item>
+        <item>Trzeci</item>
+        <item>Czwarty</item>
+    </string-array>
+
+    <string-array name="wartosci_list_rodzaj_studiow">
+        <item>Stacjonarne</item>
+        <item>Niestacjonarne</item>
+    </string-array>
+    <string-array name="wartosci_list_kierunek_studiow">
+        <item>I</item>
+        <item>ZIP</item>
+        <item>BI</item>
+        <item>IC</item>
+    </string-array>
+    <string-array name="wartosci_list_stopien_studiow">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="wartosci_list_rok_studiow">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="puste">
+    </string-array>
+
+    <string-array name="actions_on_plan">
+        <item>Otwórz</item>
+        <item>Usuń</item>
+    </string-array>
+
+    </resources>
